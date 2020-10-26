@@ -1,5 +1,9 @@
 const processData = (input) => {
   const data = JSON.parse(input);
+  if (!data || data.length < 3) {
+    console.log('not enough elements')
+    return;
+  }
   data.map((i, indexI) => {
     return data.map((j, indexJ) => {
       if (indexI <= indexJ) return;
@@ -16,6 +20,7 @@ const processData = (input) => {
 process.stdin.resume();
 process.stdin.setEncoding("ascii");
 _input = "[3, 5, 6, 10, 4, 13, 12]";
+// _input = "[2,3]";
 process.stdin.on("data", function (input) {
   _input += input;
 });
